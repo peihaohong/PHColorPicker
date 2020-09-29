@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1412FC12522D0150032D59F /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1412FBF2522D0150032D59F /* ExampleViewController.swift */; };
+		F1412FC22522D0150032D59F /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1412FC02522D0150032D59F /* ExampleViewController.xib */; };
+		F1412FC42522D1470032D59F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1412FC32522D1470032D59F /* Default-568h@2x.png */; };
 		F15F6B4A2522332E004A293A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B492522332E004A293A /* AppDelegate.swift */; };
-		F15F6B4C2522332E004A293A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B4B2522332E004A293A /* SceneDelegate.swift */; };
-		F15F6B4E2522332E004A293A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B4D2522332E004A293A /* ViewController.swift */; };
-		F15F6B512522332E004A293A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F6B4F2522332E004A293A /* Main.storyboard */; };
 		F15F6B542522332E004A293A /* PHColorPicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B522522332E004A293A /* PHColorPicker.xcdatamodeld */; };
 		F15F6B562522332F004A293A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15F6B552522332F004A293A /* Assets.xcassets */; };
 		F15F6B592522332F004A293A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F6B572522332F004A293A /* LaunchScreen.storyboard */; };
@@ -36,11 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1412FBF2522D0150032D59F /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		F1412FC02522D0150032D59F /* ExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
+		F1412FC32522D1470032D59F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F15F6B462522332E004A293A /* PHColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PHColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F6B492522332E004A293A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F15F6B4B2522332E004A293A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F15F6B4D2522332E004A293A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F15F6B502522332E004A293A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F15F6B532522332E004A293A /* PHColorPicker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PHColorPicker.xcdatamodel; sourceTree = "<group>"; };
 		F15F6B552522332F004A293A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F15F6B582522332F004A293A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,9 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1412FBE2522CFD70032D59F /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				F15F6B492522332E004A293A /* AppDelegate.swift */,
+				F15F6B552522332F004A293A /* Assets.xcassets */,
+				F15F6B572522332F004A293A /* LaunchScreen.storyboard */,
+				F15F6B522522332E004A293A /* PHColorPicker.xcdatamodeld */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		F15F6B3D2522332E004A293A = {
 			isa = PBXGroup;
 			children = (
+				F1412FC32522D1470032D59F /* Default-568h@2x.png */,
+				F1412FBE2522CFD70032D59F /* Example */,
 				F15F6B482522332E004A293A /* PHColorPicker */,
 				F15F6B622522332F004A293A /* PHColorPickerTests */,
 				F15F6B6D2522332F004A293A /* PHColorPickerUITests */,
@@ -101,14 +114,9 @@
 		F15F6B482522332E004A293A /* PHColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				F15F6B492522332E004A293A /* AppDelegate.swift */,
-				F15F6B4B2522332E004A293A /* SceneDelegate.swift */,
-				F15F6B4D2522332E004A293A /* ViewController.swift */,
-				F15F6B4F2522332E004A293A /* Main.storyboard */,
-				F15F6B552522332F004A293A /* Assets.xcassets */,
-				F15F6B572522332F004A293A /* LaunchScreen.storyboard */,
+				F1412FBF2522D0150032D59F /* ExampleViewController.swift */,
+				F1412FC02522D0150032D59F /* ExampleViewController.xib */,
 				F15F6B5A2522332F004A293A /* Info.plist */,
-				F15F6B522522332E004A293A /* PHColorPicker.xcdatamodeld */,
 			);
 			path = PHColorPicker;
 			sourceTree = "<group>";
@@ -236,8 +244,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F15F6B592522332F004A293A /* LaunchScreen.storyboard in Resources */,
+				F1412FC42522D1470032D59F /* Default-568h@2x.png in Resources */,
+				F1412FC22522D0150032D59F /* ExampleViewController.xib in Resources */,
 				F15F6B562522332F004A293A /* Assets.xcassets in Resources */,
-				F15F6B512522332E004A293A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F15F6B4E2522332E004A293A /* ViewController.swift in Sources */,
 				F15F6B4A2522332E004A293A /* AppDelegate.swift in Sources */,
-				F15F6B4C2522332E004A293A /* SceneDelegate.swift in Sources */,
 				F15F6B542522332E004A293A /* PHColorPicker.xcdatamodeld in Sources */,
+				F1412FC12522D0150032D59F /* ExampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F15F6B4F2522332E004A293A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F15F6B502522332E004A293A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F15F6B572522332F004A293A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
