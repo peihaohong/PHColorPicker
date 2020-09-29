@@ -36,6 +36,13 @@
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="byP-fj-FfN">
                     <rect key="frame" x="12" y="354" width="351" height="31"/>
                 </slider>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAm-xN-BIQ" customClass="BrightnessSlider" customModule="PHColorPicker" customModuleProvider="target">
+                    <rect key="frame" x="14" y="424" width="347" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="8GG-Op-Tyn"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -45,9 +52,12 @@
                 <constraint firstItem="NEi-Er-xf4" firstAttribute="centerY" secondItem="AwA-Lv-Wb5" secondAttribute="centerY" id="JEl-X5-CQ1"/>
                 <constraint firstItem="AwA-Lv-Wb5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="NOL-xn-C5J"/>
                 <constraint firstItem="AwA-Lv-Wb5" firstAttribute="top" secondItem="OwM-tT-xCL" secondAttribute="bottom" constant="14" id="Ph5-SM-t4z"/>
+                <constraint firstItem="YAm-xN-BIQ" firstAttribute="leading" secondItem="byP-fj-FfN" secondAttribute="leading" id="RyJ-oF-xaV"/>
                 <constraint firstItem="byP-fj-FfN" firstAttribute="top" secondItem="AwA-Lv-Wb5" secondAttribute="bottom" constant="50" id="XW2-wo-w9z"/>
                 <constraint firstItem="NEi-Er-xf4" firstAttribute="leading" secondItem="AwA-Lv-Wb5" secondAttribute="trailing" constant="14" id="dvi-F5-fzJ"/>
                 <constraint firstAttribute="trailing" secondItem="byP-fj-FfN" secondAttribute="trailing" constant="14" id="fg8-1o-6eK"/>
+                <constraint firstItem="YAm-xN-BIQ" firstAttribute="top" secondItem="byP-fj-FfN" secondAttribute="bottom" constant="40" id="lqW-Bq-JTD"/>
+                <constraint firstItem="YAm-xN-BIQ" firstAttribute="trailing" secondItem="byP-fj-FfN" secondAttribute="trailing" id="qZI-4l-Bnc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="130.40000000000001" y="113.42364532019705"/>

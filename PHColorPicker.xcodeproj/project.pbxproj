@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F13AB7452523496700D5ADD9 /* BrightnessSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13AB7442523496700D5ADD9 /* BrightnessSlider.swift */; };
 		F1412FC12522D0150032D59F /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1412FBF2522D0150032D59F /* ExampleViewController.swift */; };
 		F1412FC22522D0150032D59F /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1412FC02522D0150032D59F /* ExampleViewController.xib */; };
 		F1412FC42522D1470032D59F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1412FC32522D1470032D59F /* Default-568h@2x.png */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F13AB7442523496700D5ADD9 /* BrightnessSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessSlider.swift; sourceTree = "<group>"; };
 		F1412FBF2522D0150032D59F /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		F1412FC02522D0150032D59F /* ExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
 		F1412FC32522D1470032D59F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				F176B3AB25231D7800A76571 /* HSWheelControl.swift */,
 				F176B3AD2523264900A76571 /* RootSlider.swift */,
+				F13AB7442523496700D5ADD9 /* BrightnessSlider.swift */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				F15F6B542522332E004A293A /* PHColorPicker.xcdatamodeld in Sources */,
 				F1412FC12522D0150032D59F /* ExampleViewController.swift in Sources */,
 				F176B3AE2523264900A76571 /* RootSlider.swift in Sources */,
+				F13AB7452523496700D5ADD9 /* BrightnessSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
