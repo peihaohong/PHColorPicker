@@ -50,7 +50,7 @@ class BrightnessSlider: RootSlider {
     {
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        gradientLayer.colors = [color.cgColor,UIColor.black.cgColor]
+        gradientLayer.colors = [color.cgColor,UIColor.init(red: 0, green: 0, blue: 0, alpha: 1.0).cgColor]
         CATransaction.commit()
     }
 
