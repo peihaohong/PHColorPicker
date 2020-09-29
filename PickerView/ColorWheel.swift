@@ -16,7 +16,35 @@ class ColorWheel: UIControl {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
     
+        
+        
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addSubviews()
+    }
+     
+    
+    func addSubviews(){
+        if(iVAiming == nil && iVColorWheel == nil){
+            iVColorWheel = UIImageView.init(image: UIImage.init(named: "pickerColorWheel"));
+            iVColorWheel?.frame = self.bounds
+            iVColorWheel?.contentMode = .center
+            
+            iVAiming = UIImageView.init(image: UIImage.init(named: "targetLight"))
+            
+            self.addSubview(iVColorWheel!)
+            self.addSubview(iVAiming!)
+            bringSubviewToFront(iVAiming!)
+            self.isUserInteractionEnabled = true
+        }
     }
 }
