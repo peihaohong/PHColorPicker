@@ -16,6 +16,8 @@
 		F15F6B592522332F004A293A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F6B572522332F004A293A /* LaunchScreen.storyboard */; };
 		F15F6B642522332F004A293A /* PHColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B632522332F004A293A /* PHColorPickerTests.swift */; };
 		F15F6B6F2522332F004A293A /* PHColorPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B6E2522332F004A293A /* PHColorPickerUITests.swift */; };
+		F176B3AC25231D7800A76571 /* HSWheelControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176B3AB25231D7800A76571 /* HSWheelControl.swift */; };
+		F176B3AE2523264900A76571 /* RootSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176B3AD2523264900A76571 /* RootSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		F15F6B6A2522332F004A293A /* PHColorPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PHColorPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F6B6E2522332F004A293A /* PHColorPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHColorPickerUITests.swift; sourceTree = "<group>"; };
 		F15F6B702522332F004A293A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F176B3AB25231D7800A76571 /* HSWheelControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSWheelControl.swift; sourceTree = "<group>"; };
+		F176B3AD2523264900A76571 /* RootSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		F15F6B3D2522332E004A293A = {
 			isa = PBXGroup;
 			children = (
+				F176B3AA2523109A00A76571 /* PickerView */,
 				F1412FC32522D1470032D59F /* Default-568h@2x.png */,
 				F1412FBE2522CFD70032D59F /* Example */,
 				F15F6B482522332E004A293A /* PHColorPicker */,
@@ -137,6 +142,15 @@
 				F15F6B702522332F004A293A /* Info.plist */,
 			);
 			path = PHColorPickerUITests;
+			sourceTree = "<group>";
+		};
+		F176B3AA2523109A00A76571 /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				F176B3AB25231D7800A76571 /* HSWheelControl.swift */,
+				F176B3AD2523264900A76571 /* RootSlider.swift */,
+			);
+			path = PickerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,9 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F176B3AC25231D7800A76571 /* HSWheelControl.swift in Sources */,
 				F15F6B4A2522332E004A293A /* AppDelegate.swift in Sources */,
 				F15F6B542522332E004A293A /* PHColorPicker.xcdatamodeld in Sources */,
 				F1412FC12522D0150032D59F /* ExampleViewController.swift in Sources */,
+				F176B3AE2523264900A76571 /* RootSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
