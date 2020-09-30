@@ -29,27 +29,18 @@ class ColorWheel: UIControl {
     private var paths = [ColorPath]()
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
-        center = self.center
+        super.init(frame: frame)   
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        layer.cornerRadius = frame.size.width/2
-//        layer.masksToBounds = true
-        center = self.center
         
         
     }
     
  
     
-    
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-////        addSubviews()
-//    }
+  
     
     func colorAtPoint ( point: CGPoint) -> UIColor {
            for colorPath in 0..<paths.count {
@@ -118,20 +109,23 @@ class ColorWheel: UIControl {
         return dis <= radius;
     }
     
+    
     override func draw(_ rect: CGRect) {
         let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) 
              //基础参数
              let angle:CGFloat = CGFloat(2.0) *  (.pi) / CGFloat(sectors)
              var colorPath:ColorPath = ColorPath(Path:UIBezierPath(), Color:UIColor.clear)
-        self.center = CGPoint(x: bounds.width - (bounds.width / 2.0),y: bounds.height - (bounds.height / 2.0) )
+       
         
              UIGraphicsBeginImageContextWithOptions(CGSize(width: bounds.size.width, height: bounds.size.height), true, 0)
              
              UIColor.white.setFill()
-             UIRectFill(frame)
+             UIRectFill(bounds )
              
+        
              for sector in 0..<sectors {
-                 let center = self.center
+                //这里的center是给imageview用的,它是子视图,所以应该使用bounds的参数做它的center
+                 let center = CGPoint(x: bounds.width - (bounds.width / 2.0),y: bounds.height - (bounds.height / 2.0) )
                  colorPath.Path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(sector) * angle, endAngle: (CGFloat(sector) + CGFloat(1)) * angle, clockwise: true)
                  colorPath.Path.addLine(to: center)
                  colorPath.Path.close()
@@ -152,122 +146,15 @@ class ColorWheel: UIControl {
              let imageView = UIImageView (image: image)
              self.addSubview(imageView)
              self.addSubviews()
-//             guard let oc = superview?.center else { return }
-//             self.center = oc
-//        self.center = CGPoint(x:frame.origin.x + bounds.width - (bounds.width / 2.0),y:frame.origin.y + bounds.height - (bounds.height / 2.0) )
        
          }
     
-    
-//    func colorAtPixel(_ point : CGPoint) -> UIColor
-//    {
-//        let RGBA : CGFloat = 4.0;
-//        let pointX = trunc(point.x)
-//        let pointY = trunc(point.y)
-//        let cgImage = iVColorWheel?.image?.cgImage
-//        let width = iVColorWheel?.image?.size.width
-//        let height = iVColorWheel?.image?.size.height
-//        let colorSpace = CGColorSpaceCreateDeviceRGB()
-//        let bytesPerPixel = RGBA
-////        let bytesPerRow = bytesPerPixel * width
-//        let bytesPerRow = bytesPerPixel * width!
-//        let bitsPerCompnent = 8
-//        let rawData = malloc(Int(width! * height! * CGFloat.init(MemoryLayout<CUnsignedChar>.size) *  RGBA))!.assumingMemoryBound(to: UInt8.self)
-//        var pixelData = [0,0,0,0]
-////        let bitmapInfo = CGBitmapInfo.init(<#T##sequence: Sequence##Sequence#>)
-//        var context =   CGContext.init(data: rawData, width:Int.init(width!) , height: Int.init(height!), bitsPerComponent: bitsPerCompnent, bytesPerRow: Int.init(bytesPerRow), space: colorSpace, bitmapInfo:CGBitmapInfo.byteOrder32Big.rawValue )
-//        ctm
-//    }
+ 
     
    
 }
 
 
-//
-//  ColorWheel.swift
-//  ColorWheel
-//
-//  Created by Tommie N. Carter, Jr., MBA on 4/9/15.
-//  Copyright (c) 2015 MING Technology. All rights reserved.
-//
-
-/*import UIKit
-
-
-struct ColorPath {
-    var Path:UIBezierPath
-    var Color:UIColor
-}
-
-
-@IBDesignable
-class ColorWheel: UIView {
-    
-    override init (frame : CGRect) {
-        super.init(frame : frame)
-        center = self.center
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
-        center = self.center
-    }
-    
-    private var image:UIImage? = nil
-    private var imageView:UIImageView? = nil
-    private var paths = [ColorPath]()
-    
-    @IBInspectable var size:CGSize = CGSize.zero { didSet { setNeedsDisplay()} }
-    @IBInspectable var sectors:Int = 360 { didSet { setNeedsDisplay()} }
-    
-    func colorAtPoint ( point: CGPoint) -> UIColor {
-        for colorPath in 0..<paths.count {
-            if paths[colorPath].Path.contains(point) {
-                return paths[colorPath].Color
-            }
-        }
-        return UIColor.clear
-    }
-
-    override func draw(_ rect: CGRect) {
-        
-        let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) * 0.90
-        
-        let angle:CGFloat = CGFloat(2.0) *  (.pi) / CGFloat(sectors)
-        
-        var colorPath:ColorPath = ColorPath(Path:UIBezierPath(), Color:UIColor.clear)
-        
-        self.center = CGPoint(x: self.bounds.width - (self.bounds.width / 2.0),y: self.bounds.height - (self.bounds.height / 2.0) )
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: bounds.size.width, height: bounds.size.height), true, 0)
-        
-        UIColor.white.setFill()
-        UIRectFill(frame)
-        
-        for sector in 0..<sectors {
-            let center = self.center
-            colorPath.Path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(sector) * angle, endAngle: (CGFloat(sector) + CGFloat(1)) * angle, clockwise: true)
-            colorPath.Path.addLine(to: center)
-            colorPath.Path.close()
-            
-            let color = UIColor(hue: CGFloat(sector)/CGFloat(sectors), saturation: CGFloat(1), brightness: CGFloat(1), alpha: CGFloat(1))
-            color.setFill()
-            color.setStroke()
-            
-            colorPath.Path.fill()
-            colorPath.Path.stroke()
-            colorPath.Color = color
-
-            paths.append(colorPath)
-        }
-        image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        guard image != nil else { return }
-        let imageView = UIImageView (image: image)
-        self.addSubview(imageView)
-        guard let oc = superview?.center else { return }
-        self.center = oc
-    }
-}
-*/
+ 
 
 
