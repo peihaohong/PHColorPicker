@@ -15,11 +15,7 @@ class BrightnessSlider: RootSlider {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    override func awakeFromNib() {
-         super.awakeFromNib()
-               
-    }
+     
    
     override func layoutSubviews() {
         super.layoutSubviews()

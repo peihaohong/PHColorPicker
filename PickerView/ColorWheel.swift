@@ -20,9 +20,8 @@ class ColorWheel: UIControl {
     var iVAiming : UIImageView?
     var size = CGSize.zero
     var sectors = 360
-    
-//    @IBInspectable var size:CGSize = CGSize.zero { didSet { setNeedsDisplay()} }
-//       @IBInspectable var sectors:Int = 360 { didSet { setNeedsDisplay()} }
+    var WheelColorChange : ((UIColor) -> Void)?
+
     
     private var image:UIImage? = nil
     private var imageView:UIImageView? = nil
@@ -38,18 +37,23 @@ class ColorWheel: UIControl {
         
     }
     
- 
     
-  
+    func colorChange(_ colorInput: UIColor ,fn: (_ color : UIColor ) -> Void)
+    {
+        fn(colorInput)
+        
+    }
     
-    func colorAtPoint ( point: CGPoint) -> UIColor {
-           for colorPath in 0..<paths.count {
-               if paths[colorPath].Path.contains(point) {
-                   return paths[colorPath].Color
-               }
-           }
-           return UIColor.clear
-       }
+    
+    func colorAtPoint ( point: CGPoint) {
+        for colorPath in 0..<paths.count {
+            if paths[colorPath].Path.contains(point) {
+                WheelColorChange!(paths[colorPath].Color)
+//                return paths[colorPath].Color
+            }
+        }
+//        return UIColor.clear
+    }
     
     
     func addSubviews(){
@@ -64,16 +68,17 @@ class ColorWheel: UIControl {
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-         
+        
         let location = touch.location(in: self)
         let canMove = isInCircle(location)
         
         if canMove {
+            colorAtPoint(point: location)
             iVAiming?.center = location
             print("在圆范围内")
             return true
         }else{
-             print("在圆范围外")
+            print("在圆范围外")
             return false
         }
         
@@ -82,12 +87,13 @@ class ColorWheel: UIControl {
         let location = touch.location(in: self)
         let canMove = isInCircle(location)
         
-        if canMove {
+        if canMove { 
+            colorAtPoint(point: location)
             print("在圆范围内continue")
             iVAiming?.center = location
             return true
         }else{
-             print("在圆范围外continue")
+            print("在圆范围外continue")
             return false
         }
         
@@ -112,49 +118,49 @@ class ColorWheel: UIControl {
     
     override func draw(_ rect: CGRect) {
         let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) 
-             //基础参数
-             let angle:CGFloat = CGFloat(2.0) *  (.pi) / CGFloat(sectors)
-             var colorPath:ColorPath = ColorPath(Path:UIBezierPath(), Color:UIColor.clear)
-       
+        //基础参数
+        let angle:CGFloat = CGFloat(2.0) *  (.pi) / CGFloat(sectors)
+        var colorPath:ColorPath = ColorPath(Path:UIBezierPath(), Color:UIColor.clear)
         
-             UIGraphicsBeginImageContextWithOptions(CGSize(width: bounds.size.width, height: bounds.size.height), true, 0)
-             
-             UIColor.white.setFill()
-             UIRectFill(bounds )
-             
         
-             for sector in 0..<sectors {
-                //这里的center是给imageview用的,它是子视图,所以应该使用bounds的参数做它的center
-                 let center = CGPoint(x: bounds.width - (bounds.width / 2.0),y: bounds.height - (bounds.height / 2.0) )
-                 colorPath.Path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(sector) * angle, endAngle: (CGFloat(sector) + CGFloat(1)) * angle, clockwise: true)
-                 colorPath.Path.addLine(to: center)
-                 colorPath.Path.close()
-                 
-                 let color = UIColor(hue: CGFloat(sector)/CGFloat(sectors), saturation: CGFloat(1), brightness: CGFloat(1), alpha: CGFloat(1))
-                 color.setFill()
-                 color.setStroke()
-                 
-                 colorPath.Path.fill()
-                 colorPath.Path.stroke()
-                 colorPath.Color = color
-
-                 paths.append(colorPath)
-             }
-             image = UIGraphicsGetImageFromCurrentImageContext()
-             UIGraphicsEndImageContext()
-             guard image != nil else { return }
-             let imageView = UIImageView (image: image)
-             self.addSubview(imageView)
-             self.addSubviews()
-       
-         }
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: bounds.size.width, height: bounds.size.height), true, 0)
+        
+        UIColor.white.setFill()
+        UIRectFill(bounds )
+        
+        
+        for sector in 0..<sectors {
+            //这里的center是给imageview用的,它是子视图,所以应该使用bounds的参数做它的center
+            let center = CGPoint(x: bounds.width - (bounds.width / 2.0),y: bounds.height - (bounds.height / 2.0) )
+            colorPath.Path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(sector) * angle, endAngle: (CGFloat(sector) + CGFloat(1)) * angle, clockwise: true)
+            colorPath.Path.addLine(to: center)
+            colorPath.Path.close()
+            
+            let color = UIColor(hue: CGFloat(sector)/CGFloat(sectors), saturation: CGFloat(1), brightness: CGFloat(1), alpha: CGFloat(1))
+            color.setFill()
+            color.setStroke()
+            
+            colorPath.Path.fill()
+            colorPath.Path.stroke()
+            colorPath.Color = color
+            
+            paths.append(colorPath)
+        }
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard image != nil else { return }
+        let imageView = UIImageView (image: image)
+        self.addSubview(imageView)
+        self.addSubviews()
+        
+    }
     
- 
     
-   
+    
+    
 }
 
 
- 
+
 
 

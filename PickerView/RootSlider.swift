@@ -13,6 +13,7 @@ class RootSlider: UIControl {
     var  isHorizontal = true
     var valueSlider : CGFloat = 0.0
     let ainmingWidth : CGFloat = 40.0
+    var brightnessChange : ((CGFloat) -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +38,7 @@ class RootSlider: UIControl {
         self.valueSlider = 0.0
     }
     
-    func setValue(_ valueInput: CGFloat) { 
+    func setValue() {
         //若是水平 则横坐标为视图 视图的宽*value
         //若是垂直 则横坐标为视图二分一
         let x = isHorizontal ? frame.size.width * valueSlider : frame.size.width / 2
@@ -49,7 +50,7 @@ class RootSlider: UIControl {
     func mapPointToValue(_ point : CGPoint)
     {
         valueSlider = isHorizontal ? point.x / frame.size.width : point.y / frame.size.height
-        setValue(valueSlider)
+        setValue()
         self.sendActions(for: .valueChanged)
     }
     

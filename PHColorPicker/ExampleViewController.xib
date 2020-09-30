@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExampleViewController" customModule="PHColorPicker" customModuleProvider="target">
             <connections>
+                <outlet property="brightSlider" destination="YAm-xN-BIQ" id="LAp-XM-rRj"/>
+                <outlet property="colorChose" destination="AwA-Lv-Wb5" id="Wde-X8-mq8"/>
+                <outlet property="colorWheel" destination="5wK-ej-oLw" id="bI2-me-HVE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwA-Lv-Wb5">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwA-Lv-Wb5">
                     <rect key="frame" x="14" y="274.33333333333331" width="50" height="30"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
@@ -24,8 +27,8 @@
                         <constraint firstAttribute="width" constant="50" id="Mhc-YR-Fho"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="选中颜色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEi-Er-xf4">
-                    <rect key="frame" x="78" y="278.66666666666674" width="69.666666666666686" height="21.333333333333314"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选中颜色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEi-Er-xf4">
+                    <rect key="frame" x="78" y="278.66666666666669" width="69.666666666666686" height="21.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -55,6 +58,7 @@
                 <constraint firstItem="AwA-Lv-Wb5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="NOL-xn-C5J"/>
                 <constraint firstItem="NEi-Er-xf4" firstAttribute="leading" secondItem="AwA-Lv-Wb5" secondAttribute="trailing" constant="14" id="dvi-F5-fzJ"/>
                 <constraint firstItem="5wK-ej-oLw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qh4-WC-aP8"/>
+                <constraint firstItem="NEi-Er-xf4" firstAttribute="top" secondItem="5wK-ej-oLw" secondAttribute="bottom" constant="30.670000000000002" id="sbc-oV-WAw"/>
             </constraints>
             <point key="canvasLocation" x="130.40000000000001" y="113.42364532019705"/>
         </view>
