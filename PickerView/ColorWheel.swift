@@ -18,32 +18,38 @@ class ColorWheel: UIControl {
     //取色盘
     var iVColorWheel : UIImageView?
     var iVAiming : UIImageView?
+    var size = CGSize.zero
+    var sectors = 360
     
-    @IBInspectable var size:CGSize = CGSize.zero { didSet { setNeedsDisplay()} }
-       @IBInspectable var sectors:Int = 360 { didSet { setNeedsDisplay()} }
+//    @IBInspectable var size:CGSize = CGSize.zero { didSet { setNeedsDisplay()} }
+//       @IBInspectable var sectors:Int = 360 { didSet { setNeedsDisplay()} }
     
     private var image:UIImage? = nil
     private var imageView:UIImageView? = nil
     private var paths = [ColorPath]()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        center = self.center
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        layer.cornerRadius = frame.size.width/2
-        layer.masksToBounds = true
+//        layer.cornerRadius = frame.size.width/2
+//        layer.masksToBounds = true
+        center = self.center
         
         
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+ 
     
     
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addSubviews()
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+////        addSubviews()
+//    }
     
     func colorAtPoint ( point: CGPoint) -> UIColor {
            for colorPath in 0..<paths.count {
@@ -57,14 +63,9 @@ class ColorWheel: UIControl {
     
     func addSubviews(){
         if(iVAiming == nil){
-//            iVColorWheel = UIImageView.init(image: UIImage.init(named: "pickerColorWheel"));
-//            iVColorWheel?.frame = self.bounds
-//            iVColorWheel?.contentMode = .center
             
             iVAiming = UIImageView.init(image: UIImage.init(named: "targetLight"))
             iVAiming?.center = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
-            
-//            self.addSubview(iVColorWheel!)
             self.addSubview(iVAiming!)
             bringSubviewToFront(iVAiming!)
             self.isUserInteractionEnabled = true
@@ -118,13 +119,12 @@ class ColorWheel: UIControl {
     }
     
     override func draw(_ rect: CGRect) {
-        let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) * 0.90
-             
+        let radius = CGFloat ( min(bounds.size.width, bounds.size.height) / 2.0 ) 
+             //基础参数
              let angle:CGFloat = CGFloat(2.0) *  (.pi) / CGFloat(sectors)
-             
              var colorPath:ColorPath = ColorPath(Path:UIBezierPath(), Color:UIColor.clear)
-             
-             self.center = CGPoint(x: self.bounds.width - (self.bounds.width / 2.0),y: self.bounds.height - (self.bounds.height / 2.0) )
+        self.center = CGPoint(x: bounds.width - (bounds.width / 2.0),y: bounds.height - (bounds.height / 2.0) )
+        
              UIGraphicsBeginImageContextWithOptions(CGSize(width: bounds.size.width, height: bounds.size.height), true, 0)
              
              UIColor.white.setFill()
@@ -151,8 +151,11 @@ class ColorWheel: UIControl {
              guard image != nil else { return }
              let imageView = UIImageView (image: image)
              self.addSubview(imageView)
-             guard let oc = superview?.center else { return }
-             self.center = oc
+             self.addSubviews()
+//             guard let oc = superview?.center else { return }
+//             self.center = oc
+//        self.center = CGPoint(x:frame.origin.x + bounds.width - (bounds.width / 2.0),y:frame.origin.y + bounds.height - (bounds.height / 2.0) )
+       
          }
     
     
