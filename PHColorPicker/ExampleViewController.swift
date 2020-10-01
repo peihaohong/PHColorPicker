@@ -13,6 +13,7 @@ class ExampleViewController: UIViewController {
     @IBOutlet weak var colorWheel: ColorWheel!
     @IBOutlet weak var colorChose: UIView!
     @IBOutlet weak var brightSlider: BrightnessSlider!
+    @IBOutlet weak var textField: UITextField!
     
     var currentColor : UIColor?
     
@@ -38,6 +39,12 @@ class ExampleViewController: UIViewController {
     
  
     
+    @IBAction func btnSureOnClick(_ sender: UIButton) {
+        
+        let color = UIColor.init(hexString: textField.text!)
+        self.colorChose.backgroundColor = color
+        
+    }
     
     
     

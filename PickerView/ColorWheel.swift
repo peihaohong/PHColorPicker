@@ -40,16 +40,26 @@ class ColorWheel: UIControl {
         for colorPath in 0..<paths.count {
             if paths[colorPath].Path.contains(point) {
                 colorSelected = paths[colorPath].Color
+                testColorEqual(colorSelected!)
                 self.sendActions(for: .valueChanged)
             }
         }
     }
     
+    func testColorEqual(_ color : UIColor)
+    {
+        
+        let colorStr = "#FF004C"
+        let newColor = UIColor.init(hexString: colorStr)
+        positinoWithColor(color: newColor)
+    }
+    
     func positinoWithColor(color: UIColor){
         for colorPath in 0..<paths.count
         {
-            if paths[colorPath].Color == color {
-//                self.center =
+            
+            if paths[colorPath].Color.cgColor == color.cgColor {
+                print("找到颜色了")
             }
         }
         
@@ -153,9 +163,7 @@ class ColorWheel: UIControl {
         //先设置当前颜色为中心点
         colorAtPoint(point: self.center)
     }
-    
-    
-    
+     
     
 }
 

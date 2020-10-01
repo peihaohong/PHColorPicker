@@ -11,6 +11,7 @@
                 <outlet property="brightSlider" destination="YAm-xN-BIQ" id="LAp-XM-rRj"/>
                 <outlet property="colorChose" destination="AwA-Lv-Wb5" id="Wde-X8-mq8"/>
                 <outlet property="colorWheel" destination="5wK-ej-oLw" id="bI2-me-HVE"/>
+                <outlet property="textField" destination="i6h-fj-4Hp" id="rbx-kF-tAl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwA-Lv-Wb5">
-                    <rect key="frame" x="14" y="274.33333333333331" width="50" height="30"/>
+                    <rect key="frame" x="14" y="274" width="50" height="30"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="G0C-MV-ag4"/>
                         <constraint firstAttribute="width" constant="50" id="Mhc-YR-Fho"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选中颜色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEi-Er-xf4">
-                    <rect key="frame" x="78" y="278.66666666666669" width="69.666666666666686" height="21.333333333333314"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="byP-fj-FfN">
                     <rect key="frame" x="12" y="354.33333333333331" width="351" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,15 +45,32 @@
                         <constraint firstAttribute="height" constant="222" id="Pq2-7n-FMC"/>
                     </constraints>
                 </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i6h-fj-4Hp">
+                    <rect key="frame" x="79" y="272" width="200" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="TxL-lC-6fg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCE-B3-KWh">
+                    <rect key="frame" x="297" y="274" width="31" height="30"/>
+                    <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="btnSureOnClick:" destination="-1" eventType="touchUpInside" id="NUK-bP-lab"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5wK-ej-oLw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="26" id="24a-nU-eUe"/>
-                <constraint firstItem="NEi-Er-xf4" firstAttribute="centerY" secondItem="AwA-Lv-Wb5" secondAttribute="centerY" id="JEl-X5-CQ1"/>
+                <constraint firstItem="SCE-B3-KWh" firstAttribute="leading" secondItem="i6h-fj-4Hp" secondAttribute="trailing" constant="18" id="69i-9p-YsA"/>
+                <constraint firstItem="i6h-fj-4Hp" firstAttribute="top" secondItem="5wK-ej-oLw" secondAttribute="bottom" constant="24" id="Gef-D9-USo"/>
+                <constraint firstItem="i6h-fj-4Hp" firstAttribute="centerY" secondItem="AwA-Lv-Wb5" secondAttribute="centerY" id="LUh-5Y-6kN"/>
                 <constraint firstItem="AwA-Lv-Wb5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="NOL-xn-C5J"/>
-                <constraint firstItem="NEi-Er-xf4" firstAttribute="leading" secondItem="AwA-Lv-Wb5" secondAttribute="trailing" constant="14" id="dvi-F5-fzJ"/>
                 <constraint firstItem="5wK-ej-oLw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qh4-WC-aP8"/>
-                <constraint firstItem="NEi-Er-xf4" firstAttribute="top" secondItem="5wK-ej-oLw" secondAttribute="bottom" constant="30.670000000000002" id="sbc-oV-WAw"/>
+                <constraint firstItem="SCE-B3-KWh" firstAttribute="centerY" secondItem="i6h-fj-4Hp" secondAttribute="centerY" id="sy9-qU-J47"/>
+                <constraint firstItem="i6h-fj-4Hp" firstAttribute="leading" secondItem="AwA-Lv-Wb5" secondAttribute="trailing" constant="15" id="w9v-DZ-nTH"/>
             </constraints>
             <point key="canvasLocation" x="130.40000000000001" y="113.42364532019705"/>
         </view>

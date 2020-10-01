@@ -18,6 +18,7 @@
 		F15F6B592522332F004A293A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15F6B572522332F004A293A /* LaunchScreen.storyboard */; };
 		F15F6B642522332F004A293A /* PHColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B632522332F004A293A /* PHColorPickerTests.swift */; };
 		F15F6B6F2522332F004A293A /* PHColorPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6B6E2522332F004A293A /* PHColorPickerUITests.swift */; };
+		F16EC3FA2525BDA4003E2167 /* UIColor+Hexstring.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16EC3F92525BDA4003E2167 /* UIColor+Hexstring.swift */; };
 		F176B3AE2523264900A76571 /* RootSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176B3AD2523264900A76571 /* RootSlider.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		F15F6B6A2522332F004A293A /* PHColorPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PHColorPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F15F6B6E2522332F004A293A /* PHColorPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHColorPickerUITests.swift; sourceTree = "<group>"; };
 		F15F6B702522332F004A293A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16EC3F92525BDA4003E2167 /* UIColor+Hexstring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hexstring.swift"; sourceTree = "<group>"; };
 		F176B3AD2523264900A76571 /* RootSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 		F176B3AA2523109A00A76571 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
+				F16EC3F92525BDA4003E2167 /* UIColor+Hexstring.swift */,
 				F176B3AD2523264900A76571 /* RootSlider.swift */,
 				F13AB7442523496700D5ADD9 /* BrightnessSlider.swift */,
 				F13AB7462523696D00D5ADD9 /* ColorWheel.swift */,
@@ -294,6 +297,7 @@
 				F176B3AE2523264900A76571 /* RootSlider.swift in Sources */,
 				F13AB7452523496700D5ADD9 /* BrightnessSlider.swift in Sources */,
 				F13AB7472523696D00D5ADD9 /* ColorWheel.swift in Sources */,
+				F16EC3FA2525BDA4003E2167 /* UIColor+Hexstring.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
