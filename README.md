@@ -1,10 +1,10 @@
 # PHColorPicker
-Color Picker, Color Wheel
-A colorPicker written by swift5 for ios
-There two class and one extension inside 
-UIColor + Hestring.swift change value to UIColor
-BrightnessSider.swift  control  brightness of the color
-ColorWheel.swift  pick color what you want 
+Color Picker, Color Wheel;
+A colorPicker written by swift5 for ios;
+There two class and one extension inside ;
+UIColor + Hestring.swift change value to UIColor；
+BrightnessSider.swift  control  brightness of the color;
+ColorWheel.swift  pick color what you want ;
 more detail ,see the code.
 
 颜色获取
