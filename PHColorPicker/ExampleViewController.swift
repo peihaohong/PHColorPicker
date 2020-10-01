@@ -23,18 +23,20 @@ class ExampleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        UIRectEdgeNone
-        self.edgesForExtendedLayout = UIRectEdge.bottom
-        self.navigationItem.title = "取色器示例"
-        initColorWheel()  
+        initSubViews()  
     }
     
-    func initColorWheel(){ 
+    func initSubViews(){
         colorWheel.addTarget(self, action: #selector(colorWheelValueChanged), for: .valueChanged)
         brightSlider.addTarget(self, action: #selector(brightnessSliderChange), for: .valueChanged)
         
         brightSliderVertical.addTarget(self, action: #selector(brightnessSliderVerticalChange), for: .valueChanged)
+         
+       
     }
+    
+   
+    
     @objc func brightnessSliderVerticalChange(){
             viewColorChose.backgroundColor = brightSliderVertical.colorSelected!
        }
@@ -42,8 +44,8 @@ class ExampleViewController: UIViewController {
          viewColorChose.backgroundColor = brightSlider.colorSelected!
     }
     @objc func colorWheelValueChanged(){
+        brightSliderVertical.setKeyColor(colorWheel.colorSelected!)
          brightSlider.setKeyColor(colorWheel.colorSelected!)
-         brightSliderVertical.setKeyColor(colorWheel.colorSelected!)
         }
     
  

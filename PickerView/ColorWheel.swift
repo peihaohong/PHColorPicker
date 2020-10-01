@@ -23,7 +23,7 @@ class ColorWheel: UIControl {
     private var sectors = 360
     
     private var image:UIImage? = nil
-    private var imageView:UIImageView? = nil
+    private var imageView:UIImageView =  UIImageView()
     private var paths = [ColorPath]()
     
     override init(frame: CGRect) {
@@ -31,9 +31,10 @@ class ColorWheel: UIControl {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)  
+        super.init(coder: coder)
     }
     
+  
     
     
     private func colorAtPoint ( point: CGPoint) {
@@ -131,8 +132,9 @@ class ColorWheel: UIControl {
         self.addSubview(imageView)
         self.addSubviews()
         
-        //先设置当前颜色为中心点
-        colorAtPoint(point: self.center)
+        //设置颜色为中心
+        colorAtPoint(point: imageView.center)
+      
     }
      
     

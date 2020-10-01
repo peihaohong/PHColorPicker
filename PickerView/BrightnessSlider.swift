@@ -56,7 +56,7 @@ class BrightnessSlider: UIControl {
         //若是水平 则横坐标为视图 视图的宽*value
         //若是垂直 则横坐标为视图二分一
         let x = isHorizontal ? frame.size.width * valueSlider : frame.size.width / 2
-        let y = isHorizontal ? frame.size.width / 2 : frame.size.height * valueSlider
+        let y = isHorizontal ? frame.size.height / 2 : frame.size.height * valueSlider
         sliderAimingView?.center = CGPoint.init(x: x, y: y)
         getCurrentColor()
         sendActions(for: .valueChanged)
@@ -138,7 +138,7 @@ class BrightnessSlider: UIControl {
             self.contentScaleFactor = UIScreen.main.scale
         }
         self.layer.insertSublayer(gradientLayer, at: 0)
-        setKeyColor(UIColor.blue)
+         
         
     }
     
