@@ -36,35 +36,15 @@ class ColorWheel: UIControl {
     
     
     
-    func colorAtPoint ( point: CGPoint) {
+    private func colorAtPoint ( point: CGPoint) {
         for colorPath in 0..<paths.count {
             if paths[colorPath].Path.contains(point) {
                 colorSelected = paths[colorPath].Color
-                testColorEqual(colorSelected!)
                 self.sendActions(for: .valueChanged)
             }
         }
     }
-    
-    func testColorEqual(_ color : UIColor)
-    {
-        
-        let colorStr = "#FF004C"
-        let newColor = UIColor.init(hexString: colorStr)
-        positinoWithColor(color: newColor)
-    }
-    
-    func positinoWithColor(color: UIColor){
-        for colorPath in 0..<paths.count
-        {
-            
-            if paths[colorPath].Color.cgColor == color.cgColor {
-                print("找到颜色了")
-            }
-        }
-        
-    }
-    
+     
     
     func addSubviews(){
         if(iVAiming == nil){
@@ -78,34 +58,25 @@ class ColorWheel: UIControl {
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        
         let location = touch.location(in: self)
-        let canMove = isInCircle(location)
-        
-        if canMove {
+        var result = false
+        if isInCircle(location) {
             colorAtPoint(point: location)
             iVAiming?.center = location
-            print("在圆范围内")
-            return true
-        }else{
-            print("在圆范围外")
-            return false
+            result = true
         }
+        return result
         
     }
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         let location = touch.location(in: self)
-        let canMove = isInCircle(location)
-        
-        if canMove { 
+        var result = false
+        if isInCircle(location) {
             colorAtPoint(point: location)
-            print("在圆范围内continue")
             iVAiming?.center = location
-            return true
-        }else{
-            print("在圆范围外continue")
-            return false
+            result = true
         }
+        return result
     }
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         _ = self.continueTracking(touch!, with: event)

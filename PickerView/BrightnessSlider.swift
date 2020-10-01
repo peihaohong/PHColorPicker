@@ -34,6 +34,7 @@ class BrightnessSlider: UIControl {
         super.layoutSubviews()
         self.setupLayer()
     }
+     
     
     func setupSubViews()
     {
@@ -55,7 +56,7 @@ class BrightnessSlider: UIControl {
         //若是水平 则横坐标为视图 视图的宽*value
         //若是垂直 则横坐标为视图二分一
         let x = isHorizontal ? frame.size.width * valueSlider : frame.size.width / 2
-        let y = isHorizontal ? frame.size.height / 2 : frame.size.width * valueSlider
+        let y = isHorizontal ? frame.size.width / 2 : frame.size.height * valueSlider
         sliderAimingView?.center = CGPoint.init(x: x, y: y)
         getCurrentColor()
         sendActions(for: .valueChanged)
@@ -120,9 +121,15 @@ class BrightnessSlider: UIControl {
         gradientLayer = CAGradientLayer.init()
         gradientLayer.bounds = bounds
         gradientLayer.position = CGPoint.init(x:frame.size.width * 0.5, y: frame.size.height * 0.5)
-        gradientLayer.startPoint = CGPoint.init(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint.init(x: 1, y: 0.5)
-        gradientLayer.cornerRadius = 8.0
+        if(isHorizontal){
+            gradientLayer.startPoint = CGPoint.init(x: 0, y: 0.5)
+            gradientLayer.endPoint = CGPoint.init(x: 1, y: 0.5)
+        }else{
+            gradientLayer.startPoint = CGPoint.init(x: 0, y: 0)
+            gradientLayer.endPoint = CGPoint.init(x: 0, y: 1)
+        }
+        
+        gradientLayer.cornerRadius = isHorizontal ? frame.size.height/2 : frame.size.width/2
         gradientLayer.borderWidth = 2
         gradientLayer.masksToBounds = true
         gradientLayer.borderColor = UIColor.clear.cgColor
