@@ -15,13 +15,12 @@ struct ColorPath {
 }
 
 class ColorWheel: UIControl {
+    var colorSelected : UIColor?
     //取色盘
-    var iVColorWheel : UIImageView?
-    var iVAiming : UIImageView?
-    var size = CGSize.zero
-    var sectors = 360
-    var WheelColorChange : ((UIColor) -> Void)?
-
+    private var iVColorWheel : UIImageView?
+    private var iVAiming : UIImageView?
+    private var size = CGSize.zero
+    private var sectors = 360
     
     private var image:UIImage? = nil
     private var imageView:UIImageView? = nil
@@ -32,27 +31,28 @@ class ColorWheel: UIControl {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        
+        super.init(coder: coder)  
     }
     
-    
-    func colorChange(_ colorInput: UIColor ,fn: (_ color : UIColor ) -> Void)
-    {
-        fn(colorInput)
-        
-    }
     
     
     func colorAtPoint ( point: CGPoint) {
         for colorPath in 0..<paths.count {
             if paths[colorPath].Path.contains(point) {
-                WheelColorChange!(paths[colorPath].Color)
-//                return paths[colorPath].Color
+                colorSelected = paths[colorPath].Color
+                self.sendActions(for: .valueChanged)
             }
         }
-//        return UIColor.clear
+    }
+    
+    func positinoWithColor(color: UIColor){
+        for colorPath in 0..<paths.count
+        {
+            if paths[colorPath].Color == color {
+//                self.center =
+            }
+        }
+        
     }
     
     
@@ -96,12 +96,9 @@ class ColorWheel: UIControl {
             print("在圆范围外continue")
             return false
         }
-        
-        
-        
     }
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        self.continueTracking(touch!, with: event)
+        _ = self.continueTracking(touch!, with: event)
         
     }
     
@@ -153,6 +150,8 @@ class ColorWheel: UIControl {
         self.addSubview(imageView)
         self.addSubviews()
         
+        //先设置当前颜色为中心点
+        colorAtPoint(point: self.center)
     }
     
     

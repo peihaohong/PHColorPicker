@@ -21,38 +21,22 @@ class ExampleViewController: UIViewController {
         //        UIRectEdgeNone
         self.edgesForExtendedLayout = UIRectEdge.bottom
         self.navigationItem.title = "取色器示例"
-        initColorWheel()
+        initColorWheel()  
     }
     
-    func initColorWheel(){
-        colorWheel.WheelColorChange = {
-            ( color : UIColor ) -> Void in
-            self.colorChose.backgroundColor = color
-            self.brightSlider.setKeyColor(color)
-            self.currentColor = color
-        }
-        
+    func initColorWheel(){ 
+        colorWheel.addTarget(self, action: #selector(colorWheelValueChanged), for: .valueChanged)
         brightSlider.addTarget(self, action: #selector(brightnessSliderChange), for: .valueChanged)
     }
     
     @objc func brightnessSliderChange(){
-         setColorBrightness(brightSlider.valueSlider)
-        print(brightSlider.valueSlider)
+         colorChose.backgroundColor = brightSlider.colorSelected!
+    }
+    @objc func colorWheelValueChanged(){
+         brightSlider.setKeyColor(colorWheel.colorSelected!)
     }
     
-    func setColorBrightness(_ brightnessNew : CGFloat)
-    {
-        var hue:CGFloat = 0.0
-        var saturation:CGFloat = 0.0
-        var brightness:CGFloat = 0.0
-        var alpha:CGFloat = 0.0
-        //获取该颜色的几项值
-        currentColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-         
-        //重新把几项值+新亮度重新组合成新颜色
-        let newColor = UIColor.init(hue: hue, saturation: saturation, brightness: 1 - brightnessNew, alpha: alpha)
-        self.colorChose.backgroundColor = newColor
-    }
+ 
     
     
     
